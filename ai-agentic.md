@@ -259,11 +259,11 @@ Ready to start. Pick where to begin:
 
 ### Phase 3 — Tools Implementation
 
-- [ ] `tools/gcp_iam_tools.py` — implement `get_iam_policy()` and test standalone
-- [ ] `tools/gcp_iam_tools.py` — implement `list_service_accounts()` and test
-- [ ] `tools/gcp_iam_tools.py` — implement `analyze_permissions()` and test
-- [ ] `tools/report_tools.py` — implement Markdown report generation function
-- [ ] Run each tool against a real GCP project and verify responses
+- [x] `tools/gcp_iam_tools.py` — implement `get_iam_policy()` and test standalone
+- [x] `tools/gcp_iam_tools.py` — implement `list_service_accounts()` and test
+- [x] `tools/gcp_iam_tools.py` — implement `analyze_permissions()` and test
+- [x] `tools/report_tools.py` — implement Markdown report generation function
+- [x] Run each tool against a real GCP project and verify responses
 
 ### Phase 4 — Agent Implementation
 

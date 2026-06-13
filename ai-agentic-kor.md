@@ -259,11 +259,11 @@ gcloud auth application-default login
 
 ### Phase 3 — Tools 구현
 
-- [ ] `tools/gcp_iam_tools.py` — `get_iam_policy()` 구현 및 단독 실행 테스트
-- [ ] `tools/gcp_iam_tools.py` — `list_service_accounts()` 구현 및 테스트
-- [ ] `tools/gcp_iam_tools.py` — `analyze_permissions()` 구현 및 테스트
-- [ ] `tools/report_tools.py` — Markdown 리포트 생성 함수 구현
-- [ ] 각 Tool을 실제 GCP 프로젝트에 실행해서 응답 확인
+- [x] `tools/gcp_iam_tools.py` — `get_iam_policy()` 구현 및 단독 실행 테스트
+- [x] `tools/gcp_iam_tools.py` — `list_service_accounts()` 구현 및 테스트
+- [x] `tools/gcp_iam_tools.py` — `analyze_permissions()` 구현 및 테스트
+- [x] `tools/report_tools.py` — Markdown 리포트 생성 함수 구현
+- [x] 각 Tool을 실제 GCP 프로젝트에 실행해서 응답 확인
 
 ### Phase 4 — Agent 구현
 
