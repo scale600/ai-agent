@@ -22,7 +22,7 @@ resource "google_project_service" "artifact_registry" {
 
 resource "google_artifact_registry_repository" "repo" {
   location      = var.region
-  repository_id = "ai-agentic"
+  repository_id = "ai-agent"
   format        = "DOCKER"
   depends_on    = [google_project_service.artifact_registry]
 }
@@ -30,8 +30,8 @@ resource "google_artifact_registry_repository" "repo" {
 # ── Service Account ────────────────────────────────────────────────────────────
 
 resource "google_service_account" "app_sa" {
-  account_id   = "ai-agentic-sa"
-  display_name = "AI Agentic App Service Account"
+  account_id   = "ai-agent-sa"
+  display_name = "AI Agent App Service Account"
 }
 
 # Read IAM policies (get_iam_policy tool)
@@ -58,11 +58,11 @@ resource "google_project_iam_member" "sa_vertex_user" {
 # ── Cloud Run ──────────────────────────────────────────────────────────────────
 
 locals {
-  image = "${var.region}-docker.pkg.dev/${var.project_id}/ai-agentic/app:${var.image_tag}"
+  image = "${var.region}-docker.pkg.dev/${var.project_id}/ai-agent/app:${var.image_tag}"
 }
 
 resource "google_cloud_run_v2_service" "app" {
-  name     = "ai-agentic"
+  name     = "ai-agent"
   location = var.region
 
   deletion_protection = false

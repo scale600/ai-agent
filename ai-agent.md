@@ -1,8 +1,8 @@
-# ai-agentic — PRD (Product Requirements Document)
+# ai-agent — PRD (Product Requirements Document)
 
 > **Purpose:** Agentic AI demo project built on Google ADK + Gemini on Vertex AI  
 > **Date:** 2026-06-13  
-> **Status:** In Progress
+> **Status:** Nearly Complete (domain DNS propagation pending)
 
 ---
 
@@ -10,9 +10,9 @@
 
 | Field | Details |
 |-------|---------|
-| Project Name | `ai-agentic` |
-| GitHub Repo | `github.com/scale600/ai-agentic` |
-| Live Demo | `ai-agentic.techcloudup.com` |
+| Project Name | `ai-agent` |
+| GitHub Repo | `github.com/scale600/ai-agent` |
+| Live Demo | `ai-agent.techcloudup.com` |
 | Summary | Automated GCP IAM Audit Agentic AI — natural language input → real GCP API calls → report generation |
 
 ---
@@ -22,7 +22,7 @@
 - Demonstrate how Agentic AI actually works using Google ADK + Gemini on Vertex AI
 - Implement and show an end-to-end flow: natural language → GCP API execution → report generation
 - Validate ReAct pattern, tool calling, and multi-agent architecture through working code
-- Provide a live demo at `ai-agentic.techcloudup.com` that anyone can run immediately
+- Provide a live demo at `ai-agent.techcloudup.com` that anyone can run immediately
 
 ## 3. Non-Goals
 
@@ -94,7 +94,7 @@
 |-------|-----------|-------|
 | Deployment | Cloud Run | Serverless, custom domain, watch for cold starts |
 | Auth | Workload Identity / Service Account | SA key files prohibited — use Secret Manager |
-| Domain | Cloudflare DNS → Cloud Run | CNAME record |
+| Domain | Cloudflare DNS → GCP Domain Mapping → Cloud Run | CNAME `ai-agent` → `ghs.googlehosted.com` |
 | UI | Streamlit | `>=1.35.0` |
 | IaC | Terraform | Manages Cloud Run, IAM, Secret Manager |
 | CI/CD | GitHub Actions | Auto-deploy to Cloud Run on main push |
@@ -114,10 +114,14 @@
 ## 6. Project Structure
 
 ```
-ai-agentic/
+ai-agent/
 ├── app/
-│   ├── main.py               # Streamlit Chat UI
-│   └── agent_client.py       # ADK Agent call wrapper
+│   ├── main.py               # Streamlit entry point (st.navigation multi-page)
+│   ├── agent_client.py       # ADK Agent call wrapper
+│   └── pages/
+│       ├── audit.py          # IAM Audit chat UI
+│       ├── about.py          # About page
+│       └── how_it_works.py   # Architecture + ReAct flow explanation
 ├── agents/
 │   ├── supervisor.py         # ADK LlmAgent (orchestrator)
 │   └── iam_audit_agent.py    # IAM Audit dedicated agent (sub-agent)
@@ -147,7 +151,7 @@ ai-agentic/
 
 ```bash
 # GCP setup
-gcloud projects create ai-agentic-demo --name="AI Agentic Demo"
+gcloud projects create ai-agent-demo --name="AI Agent Demo"
 gcloud services enable \
   aiplatform.googleapis.com \
   iam.googleapis.com \
@@ -186,7 +190,7 @@ gcloud auth application-default login
 - Write `Dockerfile` and test with `docker build` locally
 - Provision Cloud Run + IAM with Terraform
 - Set up GitHub Actions `deploy.yml` (Workload Identity Federation)
-- Cloudflare DNS: `ai-agentic.techcloudup.com` CNAME → Cloud Run URL
+- Cloudflare DNS: `ai-agent.techcloudup.com` CNAME → Cloud Run URL
 
 ### Day 8 — Documentation & Wrap-up
 
@@ -210,11 +214,11 @@ gcloud auth application-default login
 
 ## 9. Completion Criteria
 
-- [ ] End-to-end flow confirmed: natural language input → real GCP IAM API call → report generation
-- [ ] External access and execution available at `ai-agentic.techcloudup.com`
-- [ ] Agent's reasoning trace displayed in real-time in the UI
-- [ ] ADK multi-agent (Supervisor + Sub-agent) structure working in practice
-- [ ] GitHub README includes Architecture diagram + demo screenshot
+- [x] End-to-end flow confirmed: natural language input → real GCP IAM API call → report generation
+- [ ] External access and execution available at `ai-agent.techcloudup.com` ← DNS propagation pending
+- [x] Agent's reasoning trace displayed in real-time in the UI
+- [x] ADK multi-agent (Supervisor + Sub-agent) structure working in practice
+- [x] GitHub README includes Architecture diagram + demo screenshot
 
 ---
 
@@ -248,14 +252,14 @@ Ready to start. Pick where to begin:
 
 ### Phase 2 — Local Development Environment
 
-- [x] Create project folder (`ai-agentic/`)
+- [x] Create project folder (`ai-agent/`)
 - [x] Create and activate Python virtual environment (`.venv`)
 - [x] Check ADK version → `2.2.0` latest confirmed
 - [x] Install packages (`google-adk==2.2.0`, `langchain`, `langchain-google-vertexai`, `streamlit`, `python-dotenv`)
 - [x] Write `requirements.txt`
 - [x] Write `.env.example` (environment variable template)
 - [x] Configure `.gitignore` (exclude `.env`, `*.json` key files)
-- [x] Create GitHub repo (`ai-agentic`) and initial commit
+- [x] Create GitHub repo (`ai-agent`) and initial commit
 
 ### Phase 3 — Tools Implementation
 
@@ -296,13 +300,16 @@ Ready to start. Pick where to begin:
 
 - [x] Write GitHub Actions `deploy.yml`
 - [x] Configure Workload Identity Federation (deploy without SA key files)
-- [ ] Verify main branch push triggers auto-deploy
-- [ ] Cloudflare DNS: add `ai-agentic.techcloudup.com` CNAME record
-- [ ] Final verification: HTTPS access and external execution
+- [x] Verify main branch push triggers auto-deploy
+- [x] Google Search Console: verify domain ownership for `techcloudup.com`
+- [x] GCP Domain Mapping created: `ai-agent.techcloudup.com` → `ghs.googlehosted.com`
+- [ ] Cloudflare DNS: update CNAME `ai-agent` → `ghs.googlehosted.com` (was Cloud Run URL)
+- [ ] Final verification: HTTPS access and external execution (`curl -I https://ai-agent.techcloudup.com`)
 
 ### Phase 8 — Documentation
 
 - [x] Write `README.md` (project description, Architecture diagram, quickstart guide)
 - [x] Capture demo screenshot or GIF and embed in README
-- [ ] Set GitHub Topics: `agentic-ai` `vertex-ai` `google-adk` `gemini` `langchain` `gcp` `python`
+- [x] Add multi-page Streamlit UI: About + How it Works pages
+- [ ] Set GitHub Topics: `agentic-ai` `vertex-ai` `google-adk` `gemini` `gcp` `cloud-run` `python` `streamlit`
 - [ ] Confirm all 5 completion criteria are checked off

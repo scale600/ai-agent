@@ -8,10 +8,10 @@ on:
 env:
   PROJECT_ID: ai-agentic-2026
   REGION: us-central1
-  SERVICE: ai-agentic
-  REGISTRY: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agentic/app
+  SERVICE: ai-agent
+  REGISTRY: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
   WIF_PROVIDER: projects/1004402056084/locations/global/workloadIdentityPools/github-pool/providers/github-provider
-  SERVICE_ACCOUNT: ai-agentic-sa@ai-agentic-2026.iam.gserviceaccount.com
+  SERVICE_ACCOUNT: ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
 
 jobs:
   deploy:

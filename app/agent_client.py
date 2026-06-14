@@ -26,7 +26,7 @@ async def stream_agent(
     session_id = str(uuid.uuid4())
 
     await session_service.create_session(
-        app_name="ai-agentic",
+        app_name="ai-agent",
         user_id="user",
         session_id=session_id,
     )
@@ -34,7 +34,7 @@ async def stream_agent(
     runner = Runner(
         agent=supervisor,
         session_service=session_service,
-        app_name="ai-agentic",
+        app_name="ai-agent",
     )
 
     full_prompt = f"{user_message}\n\nProject ID: {project_id}"

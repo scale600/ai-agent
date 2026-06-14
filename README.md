@@ -1,10 +1,10 @@
-# ai-agentic — GCP IAM Audit Agent
+# ai-agent — GCP IAM Audit Agent
 
 > Automated GCP IAM Audit powered by **Google ADK 2.2 + Gemini 2.5 Flash on Vertex AI**
 
-[![Deploy to Cloud Run](https://github.com/scale600/ai-agentic/actions/workflows/deploy.yml/badge.svg)](https://github.com/scale600/ai-agentic/actions/workflows/deploy.yml)
+[![Deploy to Cloud Run](https://github.com/scale600/ai-agent/actions/workflows/deploy.yml/badge.svg)](https://github.com/scale600/ai-agent/actions/workflows/deploy.yml)
 
-**Live Demo:** [ai-agentic.techcloudup.com](https://ai-agentic.techcloudup.com)
+**Live Demo:** [ai-agent.techcloudup.com](https://ai-agent.techcloudup.com)
 
 ---
 
@@ -84,8 +84,8 @@ Infrastructure: Cloud Run · Artifact Registry · Terraform · GitHub Actions WI
 
 ```bash
 # Clone
-git clone https://github.com/scale600/ai-agentic.git
-cd ai-agentic
+git clone https://github.com/scale600/ai-agent.git
+cd ai-agent
 
 # Python env
 python -m venv .venv && source .venv/bin/activate
@@ -125,7 +125,7 @@ Open [http://localhost:8501](http://localhost:8501) and try:
 ## Project Structure
 
 ```
-ai-agentic/
+ai-agent/
 ├── app/
 │   ├── main.py               # Streamlit Chat UI
 │   └── agent_client.py       # ADK Runner wrapper
@@ -171,12 +171,12 @@ Push to `main` → GitHub Actions automatically:
 ```bash
 # Build and push
 docker buildx build --platform linux/amd64 \
-  -t us-central1-docker.pkg.dev/ai-agentic-2026/ai-agentic/app:latest \
+  -t us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app:latest \
   --push .
 
 # Deploy
-gcloud run deploy ai-agentic \
-  --image=us-central1-docker.pkg.dev/ai-agentic-2026/ai-agentic/app:latest \
+gcloud run deploy ai-agent \
+  --image=us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app:latest \
   --region=us-central1
 ```
 

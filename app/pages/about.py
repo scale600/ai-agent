@@ -39,7 +39,7 @@ This demo shows a different model: a **reasoning agent** that can adapt its appr
 
 ### Source
 
-[![GitHub](https://img.shields.io/badge/GitHub-scale600/ai--agentic-181717?logo=github&style=flat-square)](https://github.com/scale600/ai-agentic)
+[![GitHub](https://img.shields.io/badge/GitHub-scale600/ai--agent-181717?logo=github&style=flat-square)](https://github.com/scale600/ai-agent)
 
 Licensed under MIT. Contributions welcome.
 """)

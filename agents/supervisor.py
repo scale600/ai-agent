@@ -34,7 +34,7 @@ async def run(user_message: str, session_id: str = "default") -> str:
     """
     session_service = InMemorySessionService()
     await session_service.create_session(
-        app_name="ai-agentic",
+        app_name="ai-agent",
         user_id="user",
         session_id=session_id,
     )
@@ -42,7 +42,7 @@ async def run(user_message: str, session_id: str = "default") -> str:
     runner = Runner(
         agent=supervisor,
         session_service=session_service,
-        app_name="ai-agentic",
+        app_name="ai-agent",
     )
 
     message = genai_types.Content(

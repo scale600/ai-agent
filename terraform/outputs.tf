@@ -10,5 +10,5 @@ output "service_account_email" {
 
 output "image_registry" {
   description = "Artifact Registry image path"
-  value       = "${var.region}-docker.pkg.dev/${var.project_id}/ai-agentic/app"
+  value       = "${var.region}-docker.pkg.dev/${var.project_id}/ai-agent/app"
 }
