@@ -2,24 +2,7 @@ import streamlit as st
 from app.agent_client import run_agent
 from config.settings import GCP_PROJECT_ID
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
-with st.sidebar:
-    st.divider()
-    project_id = st.text_input(
-        "GCP Project ID",
-        value=GCP_PROJECT_ID,
-        placeholder="your-project-id",
-    )
-
-    st.markdown("**Example prompts**")
-    examples = [
-        "Audit IAM policies and generate a full security report",
-        "Find service accounts with excessive permissions",
-        "Check for public access (allUsers) in IAM bindings",
-    ]
-    for example in examples:
-        if st.button(example, use_container_width=True):
-            st.session_state.pending_prompt = example
+project_id = st.session_state.get("sidebar_project_id", GCP_PROJECT_ID)
 
 # ── Session state ─────────────────────────────────────────────────────────────
 if "messages" not in st.session_state:
