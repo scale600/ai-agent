@@ -70,9 +70,9 @@ with st.sidebar:
 
 # ── Navigation ────────────────────────────────────────────────────────────────
 pg = st.navigation([
-    st.Page("pages/audit.py"),
-    st.Page("pages/about.py"),
-    st.Page("pages/how_it_works.py"),
+    st.Page("pages/audit.py", title="IAM Audit", icon="🔐"),
+    st.Page("pages/about.py", title="About", icon="ℹ️"),
+    st.Page("pages/how_it_works.py", title="How it Works", icon="🔧"),
 ], position="hidden")
 
 pg.run()
