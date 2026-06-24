@@ -9,15 +9,18 @@ if "pending_prompt" not in st.session_state:
     st.session_state.pending_prompt = None
 
 # ── Project config ────────────────────────────────────────────────────────────
-col1, col2 = st.columns([3, 1], vertical_alignment="center")
-with col1:
+cols = st.columns([1, 5, 1], vertical_alignment="center")
+with cols[0]:
+    st.markdown("**Project ID**")
+with cols[1]:
     project_id = st.text_input(
-        "GCP Project ID",
+        "project_id",
         value=GCP_PROJECT_ID,
         placeholder="your-project-id",
+        label_visibility="collapsed",
         key="project_id_input",
     )
-with col2:
+with cols[2]:
     if st.button("🔄 Connect", use_container_width=True):
         st.rerun()
 
@@ -26,9 +29,11 @@ examples = [
     "Find service accounts with excessive permissions",
     "Check for public access (allUsers) in IAM bindings",
 ]
-cols = st.columns(len(examples))
+cols = st.columns([1.5, 2, 2, 2], vertical_alignment="center")
+with cols[0]:
+    st.markdown("**Example prompts**")
 for i, example in enumerate(examples):
-    with cols[i]:
+    with cols[i + 1]:
         if st.button(example, use_container_width=True, key=f"prompt_{i}"):
             st.session_state.pending_prompt = example
             st.rerun()
