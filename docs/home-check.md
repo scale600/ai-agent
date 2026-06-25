@@ -1,0 +1,30 @@
+- generic [ref=e2]:
+  - generic [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - link "TechCloudUp" [ref=e18] [cursor=pointer]:
+          - /url: https://project.techcloudup.com
+          - img [ref=e19]
+        - link "LinkedIn" [ref=e22] [cursor=pointer]:
+          - /url: https://linkedin.com/in/scale600
+          - img [ref=e23]
+        - link "GitHub" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/scale600/ai-agent
+          - img [ref=e26]
+      - heading "🔐 AI Agent" [level=3] [ref=e28]
+      - paragraph [ref=e29]: GCP IAM Audit Agent · Google ADK + Gemini on Vertex AI
+    - separator [ref=e34]
+  - generic [ref=e3]:
+    - banner [ref=e37]:
+      - button "Main menu" [ref=e42] [cursor=pointer]:
+        - img [ref=e43]
+    - alert [ref=e49]:
+      - generic [ref=e51]:
+        - generic [ref=e52]: "KeyError: 'url_pathname'"
+        - generic [ref=e53]:
+          - generic [ref=e54]: "Traceback:"
+          - code [ref=e57]:
+            - generic [ref=e58]: File "/app/app/main.py", line 47, in <module> st.page_link("pages/audit.py", label="IAM Audit", icon="🔐")
+            - generic [ref=e59]: File "/usr/local/lib/python3.11/site-packages/streamlit/runtime/metrics_util.py", line 698, in wrapped_func result = non_optional_func(*args, **kwargs) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            - generic [ref=e60]: File "/usr/local/lib/python3.11/site-packages/streamlit/elements/widgets/button.py", line 1297, in page_link return self._page_link( ^^^^^^^^^^^^^^^^
+            - generic [ref=e61]: File "/usr/local/lib/python3.11/site-packages/streamlit/elements/widgets/button.py", line 1597, in _page_link url_pathname = page_data["url_pathname"] ~~~~~~~~~^^^^^^^^^^^^^^^^

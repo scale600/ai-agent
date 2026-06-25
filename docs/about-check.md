@@ -1,0 +1,26 @@
+- generic [ref=e2]:
+  - list [ref=e10]:
+    - listitem [ref=e11]:
+      - link "main" [ref=e13] [cursor=pointer]:
+        - /url: https://ai-agent.techcloudup.com/
+        - paragraph [ref=e16]: main
+    - listitem [ref=e17]:
+      - link "about" [ref=e19] [cursor=pointer]:
+        - /url: https://ai-agent.techcloudup.com/about
+        - paragraph [ref=e22]: about
+    - listitem [ref=e23]:
+      - link "audit" [ref=e25] [cursor=pointer]:
+        - /url: https://ai-agent.techcloudup.com/audit
+        - paragraph [ref=e28]: audit
+    - listitem [ref=e29]:
+      - link "how it works" [ref=e31] [cursor=pointer]:
+        - /url: https://ai-agent.techcloudup.com/how_it_works
+        - paragraph [ref=e34]: how it works
+  - banner [ref=e38]:
+    - generic [ref=e41]:
+      - generic [ref=e43]:
+        - img "Running..." [ref=e44]:
+          - img [ref=e45]
+        - button "Stop" [ref=e49] [cursor=pointer]
+      - button "Main menu" [ref=e51] [cursor=pointer]:
+        - img [ref=e52]

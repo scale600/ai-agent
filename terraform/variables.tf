@@ -1,7 +1,7 @@
 variable "project_id" {
-  description = "GCP Project ID"
+  description = "GCP Project ID — must be provided via -var or tfvars"
   type        = string
-  default     = "ai-agentic-2026"
+  # No default — caller must explicitly provide the project ID
 }
 
 variable "region" {

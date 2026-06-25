@@ -1,0 +1,88 @@
+- generic [ref=e2]:
+  - generic [ref=e6]:
+    - button "keyboard_double_arrow_left" [ref=e8] [cursor=pointer]:
+      - generic [ref=e10]: keyboard_double_arrow_left
+    - generic:
+      - list:
+        - listitem:
+          - link "IAM Audit" [ref=e11] [cursor=pointer]:
+            - /url: https://ai-agent.techcloudup.com/
+            - generic [ref=e14]: 🔐
+            - generic:
+              - generic:
+                - paragraph: IAM Audit
+        - listitem:
+          - link "About" [ref=e15] [cursor=pointer]:
+            - /url: https://ai-agent.techcloudup.com/about
+            - generic [ref=e18]: ℹ️
+            - generic:
+              - generic:
+                - paragraph: About
+        - listitem:
+          - link "How it Works" [ref=e19] [cursor=pointer]:
+            - /url: https://ai-agent.techcloudup.com/how_it_works
+            - generic [ref=e22]: 🔧
+            - generic:
+              - generic:
+                - paragraph: How it Works
+    - generic [ref=e23]:
+      - generic [ref=e28]:
+        - generic [ref=e29]:
+          - link "TechCloudUp" [ref=e30] [cursor=pointer]:
+            - /url: https://project.techcloudup.com
+            - img [ref=e31]
+          - link "LinkedIn" [ref=e34] [cursor=pointer]:
+            - /url: https://linkedin.com/in/scale600
+            - img [ref=e35]
+          - link "GitHub" [ref=e37] [cursor=pointer]:
+            - /url: https://github.com/scale600/ai-agent
+            - img [ref=e38]
+        - heading "🔐 AI Agent" [level=3] [ref=e40]
+        - paragraph [ref=e41]: GCP IAM Audit Agent · Google ADK + Gemini on Vertex AI
+      - separator [ref=e46]
+      - generic [ref=e48]:
+        - paragraph [ref=e52]: GCP Project ID
+        - textbox "GCP Project ID" [ref=e55]:
+          - /placeholder: your-project-id
+          - text: YOUR_PROJECT_ID
+      - paragraph [ref=e60]:
+        - strong [ref=e61]: Example prompts
+      - button "Audit IAM policies and generate a full security report" [ref=e64] [cursor=pointer]:
+        - generic:
+          - generic:
+            - generic:
+              - paragraph: Audit IAM policies and generate a full security report
+      - button "Find service accounts with excessive permissions" [ref=e67] [cursor=pointer]:
+        - generic:
+          - generic:
+            - generic:
+              - paragraph: Find service accounts with excessive permissions
+      - button "Check for public access (allUsers) in IAM bindings" [ref=e70] [cursor=pointer]:
+        - generic:
+          - generic:
+            - generic:
+              - paragraph: Check for public access (allUsers) in IAM bindings
+  - generic [ref=e3]:
+    - banner [ref=e73]:
+      - generic [ref=e75]:
+        - button "keyboard_double_arrow_right" [ref=e78] [cursor=pointer]:
+          - generic [ref=e80]: keyboard_double_arrow_right
+        - button "Main menu" [ref=e83] [cursor=pointer]:
+          - img [ref=e84]
+    - generic [ref=e87]:
+      - generic [ref=e89]:
+        - heading "GCP IAM Audit Agent" [level=1] [ref=e94]:
+          - text: GCP IAM Audit Agent
+          - generic [ref=e95]:
+            - link "Link to heading":
+              - /url: "#gcp-iam-audit-agent"
+              - img
+        - paragraph [ref=e100]:
+          - text: Connected to project
+          - strong [ref=e101]:
+            - code [ref=e102]: YOUR_PROJECT_ID
+          - text: · Powered by Google ADK + Gemini 2.5 Flash on Vertex AI
+      - generic [ref=e111]:
+        - textbox "Ask the agent to audit your GCP IAM policies..." [ref=e115]
+        - button "Send message" [disabled] [ref=e117]:
+          - img [ref=e118]

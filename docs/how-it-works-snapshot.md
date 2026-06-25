@@ -1,0 +1,192 @@
+- generic [ref=e2]:
+  - generic [ref=e7]:
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "IAM Audit" [ref=e13] [cursor=pointer]:
+          - /url: https://ai-agent.techcloudup.com/
+          - generic [ref=e16]: 🔐
+          - paragraph [ref=e19]: IAM Audit
+      - listitem [ref=e20]:
+        - link "About" [ref=e22] [cursor=pointer]:
+          - /url: https://ai-agent.techcloudup.com/about
+          - generic [ref=e25]: ℹ️
+          - paragraph [ref=e28]: About
+      - listitem [ref=e29]:
+        - link "How it Works" [ref=e31] [cursor=pointer]:
+          - /url: https://ai-agent.techcloudup.com/how_it_works
+          - generic [ref=e34]: 🔧
+          - paragraph [ref=e37]: How it Works
+    - generic [ref=e41]:
+      - heading "🔐 AI Agentic" [level=1] [ref=e45]
+      - paragraph [ref=e50]: GCP IAM Audit Agent · Google ADK + Gemini on Vertex AI
+  - generic [ref=e3]:
+    - banner [ref=e53]:
+      - button "Main menu" [ref=e58] [cursor=pointer]:
+        - img [ref=e59]
+    - generic [ref=e62]:
+      - heading "How it Works" [level=1] [ref=e67]:
+        - text: How it Works
+        - generic [ref=e68]:
+          - link "Link to heading":
+            - /url: "#how-it-works"
+            - img
+      - paragraph [ref=e73]: Architecture and agent flow explained
+      - heading "Architecture" [level=2] [ref=e78]:
+        - text: Architecture
+        - generic [ref=e79]:
+          - link "Link to heading":
+            - /url: "#architecture"
+            - img
+      - code [ref=e84]: ┌─────────────────────────────────────────────────────┐ │ Streamlit Chat UI │ │ Natural language in · Report out │ └──────────────────────┬──────────────────────────────┘ │ ┌──────────────────────▼──────────────────────────────┐ │ Supervisor LlmAgent │ │ Google ADK 2.2 · ReAct pattern │ │ Gemini 2.5 Flash via Vertex AI │ │ │ │ "What tools do I need? In what order?" │ └───────────┬─────────────────────────────────────────┘ │ delegates to sub_agent ┌───────────▼─────────────────────────────────────────┐ │ IAM Audit Agent │ │ ┌──────────────────────────────────────────────┐ │ │ │ get_iam_policy(project_id) │──▶ Cloud Resource Manager API │ │ list_service_accounts(project_id) │──▶ IAM API │ │ analyze_permissions(policy, service_accts) │ │ │ │ generate_audit_report(findings) │ │ │ └──────────────────────────────────────────────┘ │ └─────────────────────────────────────────────────────┘
+      - heading "ReAct Pattern" [level=2] [ref=e89]:
+        - text: ReAct Pattern
+        - generic [ref=e90]:
+          - link "Link to heading":
+            - /url: "#re-act-pattern"
+            - img
+      - paragraph [ref=e95]:
+        - text: The agent follows a
+        - strong [ref=e96]: Think → Act → Observe
+        - text: loop until it has enough information to answer.
+      - generic [ref=e98]:
+        - generic [ref=e100]:
+          - heading "🧠 Think" [level=4] [ref=e106]:
+            - text: 🧠 Think
+            - generic [ref=e107]:
+              - link "Link to heading":
+                - /url: "#think"
+                - img
+          - generic [ref=e111]:
+            - paragraph [ref=e112]: "Gemini reasons about the request:"
+            - list [ref=e113]:
+              - listitem [ref=e114]: What do I need to know?
+              - listitem [ref=e115]: Which tool answers that?
+              - listitem [ref=e116]: What order makes sense?
+        - generic [ref=e118]:
+          - heading "⚡ Act" [level=4] [ref=e124]:
+            - text: ⚡ Act
+            - generic [ref=e125]:
+              - link "Link to heading":
+                - /url: "#act"
+                - img
+          - generic [ref=e129]:
+            - paragraph [ref=e130]: "Calls a GCP API tool:"
+            - list [ref=e131]:
+              - listitem [ref=e132]:
+                - code [ref=e133]: get_iam_policy
+              - listitem [ref=e134]:
+                - code [ref=e135]: list_service_accounts
+              - listitem [ref=e136]:
+                - code [ref=e137]: analyze_permissions
+        - generic [ref=e139]:
+          - heading "👁 Observe" [level=4] [ref=e145]:
+            - text: 👁 Observe
+            - generic [ref=e146]:
+              - link "Link to heading":
+                - /url: "#observe"
+                - img
+          - generic [ref=e150]:
+            - paragraph [ref=e151]: "Reads the result and decides:"
+            - list [ref=e152]:
+              - listitem [ref=e153]: Is this enough?
+              - listitem [ref=e154]: Do I need another tool?
+              - listitem [ref=e155]: What did I find?
+      - heading "Step-by-step Flow" [level=2] [ref=e160]:
+        - text: Step-by-step Flow
+        - generic [ref=e161]:
+          - link "Link to heading":
+            - /url: "#step-by-step-flow"
+            - img
+      - group [ref=e164]:
+        - generic "keyboard_arrow_right 1. User input" [ref=e165] [cursor=pointer]:
+          - generic [ref=e166]:
+            - generic [ref=e168]: keyboard_arrow_right
+            - paragraph [ref=e171]: 1. User input
+      - group [ref=e174]:
+        - generic "keyboard_arrow_right 2. Supervisor receives request" [ref=e175] [cursor=pointer]:
+          - generic [ref=e176]:
+            - generic [ref=e178]: keyboard_arrow_right
+            - paragraph [ref=e181]: 2. Supervisor receives request
+      - group [ref=e184]:
+        - generic "keyboard_arrow_right 3. IAM Audit Agent starts ReAct loop" [ref=e185] [cursor=pointer]:
+          - generic [ref=e186]:
+            - generic [ref=e188]: keyboard_arrow_right
+            - paragraph [ref=e191]: 3. IAM Audit Agent starts ReAct loop
+      - group [ref=e194]:
+        - generic "keyboard_arrow_right 4. Tool calls to GCP APIs" [ref=e195] [cursor=pointer]:
+          - generic [ref=e196]:
+            - generic [ref=e198]: keyboard_arrow_right
+            - paragraph [ref=e201]: 4. Tool calls to GCP APIs
+      - group [ref=e204]:
+        - generic "keyboard_arrow_right 5. Analysis" [ref=e205] [cursor=pointer]:
+          - generic [ref=e206]:
+            - generic [ref=e208]: keyboard_arrow_right
+            - paragraph [ref=e211]: 5. Analysis
+      - group [ref=e214]:
+        - generic "keyboard_arrow_right 6. Report generation" [ref=e215] [cursor=pointer]:
+          - generic [ref=e216]:
+            - generic [ref=e218]: keyboard_arrow_right
+            - paragraph [ref=e221]: 6. Report generation
+      - group [ref=e224]:
+        - generic "keyboard_arrow_right 7. Displayed in UI" [ref=e225] [cursor=pointer]:
+          - generic [ref=e226]:
+            - generic [ref=e228]: keyboard_arrow_right
+            - paragraph [ref=e231]: 7. Displayed in UI
+      - heading "Tools" [level=2] [ref=e236]:
+        - text: Tools
+        - generic [ref=e237]:
+          - link "Link to heading":
+            - /url: "#tools"
+            - img
+      - table [ref=e242]:
+        - rowgroup [ref=e243]:
+          - row "Tool GCP API What it returns" [ref=e244]:
+            - columnheader "Tool" [ref=e245]
+            - columnheader "GCP API" [ref=e246]
+            - columnheader "What it returns" [ref=e247]
+        - rowgroup [ref=e248]:
+          - row "get_iam_policy Cloud Resource Manager All IAM bindings (role → members) for the project" [ref=e249]:
+            - cell "get_iam_policy" [ref=e250]:
+              - code [ref=e251]: get_iam_policy
+            - cell "Cloud Resource Manager" [ref=e252]
+            - cell "All IAM bindings (role → members) for the project" [ref=e253]
+          - row "list_service_accounts IAM API All service accounts with metadata" [ref=e254]:
+            - cell "list_service_accounts" [ref=e255]:
+              - code [ref=e256]: list_service_accounts
+            - cell "IAM API" [ref=e257]
+            - cell "All service accounts with metadata" [ref=e258]
+          - 'row "analyze_permissions — (local logic) Risk-scored findings: primitive roles, allUsers, cross-project SAs" [ref=e259]':
+            - cell "analyze_permissions" [ref=e260]:
+              - code [ref=e261]: analyze_permissions
+            - cell "— (local logic)" [ref=e262]
+            - 'cell "Risk-scored findings: primitive roles, allUsers, cross-project SAs" [ref=e263]'
+          - row "generate_audit_report — (local logic) Markdown report with severity, findings, and recommendations" [ref=e264]:
+            - cell "generate_audit_report" [ref=e265]:
+              - code [ref=e266]: generate_audit_report
+            - cell "— (local logic)" [ref=e267]
+            - cell "Markdown report with severity, findings, and recommendations" [ref=e268]
+      - heading "Authentication & Security" [level=2] [ref=e273]:
+        - text: Authentication & Security
+        - generic [ref=e274]:
+          - link "Link to heading":
+            - /url: "#authentication-and-security"
+            - img
+      - generic [ref=e278]:
+        - paragraph [ref=e279]: No service account key files are used anywhere in this system.
+        - table [ref=e280]:
+          - rowgroup [ref=e281]:
+            - row "Environment Method" [ref=e282]:
+              - columnheader "Environment" [ref=e283]
+              - columnheader "Method" [ref=e284]
+          - rowgroup [ref=e285]:
+            - row "Local dev gcloud auth application-default login (ADC)" [ref=e286]:
+              - cell "Local dev" [ref=e287]
+              - cell "gcloud auth application-default login (ADC)" [ref=e288]:
+                - code [ref=e289]: gcloud auth application-default login
+                - text: (ADC)
+            - row "Cloud Run Attached service account (Workload Identity)" [ref=e290]:
+              - cell "Cloud Run" [ref=e291]
+              - cell "Attached service account (Workload Identity)" [ref=e292]
+            - row "GitHub Actions CI/CD Workload Identity Federation (OIDC, keyless)" [ref=e293]:
+              - cell "GitHub Actions CI/CD" [ref=e294]
+              - cell "Workload Identity Federation (OIDC, keyless)" [ref=e295]

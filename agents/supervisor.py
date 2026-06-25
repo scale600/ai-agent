@@ -73,7 +73,7 @@ async def run(user_message: str, session_id: str = "default") -> str:
 
 if __name__ == "__main__":
     result = asyncio.run(
-        run("Audit IAM policies for project ai-agentic-2026 and generate a full report.")
+        run("Audit IAM policies for project your-project-id and generate a full report.")
     )
     print("\n===== FINAL REPORT =====")
     print(result)

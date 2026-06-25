@@ -242,7 +242,7 @@ Ready to start. Pick where to begin:
 
 ### Phase 1 — GCP Environment Setup
 
-- [x] Create GCP project (`ai-agentic-2026`)
+- [x] Create GCP project (`YOUR_PROJECT_ID`)
 - [x] Enable Vertex AI API (`aiplatform.googleapis.com`)
 - [x] Enable IAM API (`iam.googleapis.com`)
 - [x] Enable Cloud Resource Manager API (`cloudresourcemanager.googleapis.com`)

@@ -1,0 +1,36 @@
+- generic [ref=e2]:
+  - generic [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - link "TechCloudUp" [ref=e18] [cursor=pointer]:
+          - /url: https://project.techcloudup.com
+          - img [ref=e19]
+        - link "LinkedIn" [ref=e22] [cursor=pointer]:
+          - /url: https://linkedin.com/in/scale600
+          - img [ref=e23]
+        - link "GitHub" [ref=e25] [cursor=pointer]:
+          - /url: https://github.com/scale600/ai-agent
+          - img [ref=e26]
+      - heading "🔐 AI Agent" [level=3] [ref=e28]
+      - paragraph [ref=e29]: GCP IAM Audit Agent · Google ADK + Gemini on Vertex AI
+    - separator [ref=e34]
+    - link "IAM Audit" [ref=e38] [cursor=pointer]:
+      - /url: audit
+      - generic [ref=e40]: 🔐
+      - paragraph [ref=e43]: IAM Audit
+    - link "About" [ref=e47] [cursor=pointer]:
+      - /url: about
+      - generic [ref=e49]: ℹ️
+      - paragraph [ref=e52]: About
+    - link "How it Works" [ref=e56] [cursor=pointer]:
+      - /url: how_it_works
+      - generic [ref=e58]: 🔧
+      - paragraph [ref=e61]: How it Works
+  - banner [ref=e64]:
+    - generic [ref=e67]:
+      - generic [ref=e69]:
+        - img "Running..." [ref=e70]:
+          - img [ref=e71]
+        - button "Stop" [ref=e75] [cursor=pointer]
+      - button "Main menu" [ref=e77] [cursor=pointer]:
+        - img [ref=e78]

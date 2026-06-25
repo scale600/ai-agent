@@ -242,7 +242,7 @@ gcloud auth application-default login
 
 ### Phase 1 — GCP 환경 준비
 
-- [x] GCP 프로젝트 생성 (`ai-agentic-2026`)
+- [x] GCP 프로젝트 생성 (`YOUR_PROJECT_ID`)
 - [x] Vertex AI API 활성화 (`aiplatform.googleapis.com`)
 - [x] IAM API 활성화 (`iam.googleapis.com`)
 - [x] Cloud Resource Manager API 활성화 (`cloudresourcemanager.googleapis.com`)

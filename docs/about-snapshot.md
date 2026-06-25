@@ -1,0 +1,101 @@
+- generic [ref=e2]:
+  - generic [ref=e7]:
+    - list [ref=e10]:
+      - listitem [ref=e11]:
+        - link "IAM Audit" [ref=e13] [cursor=pointer]:
+          - /url: https://ai-agent.techcloudup.com/
+          - generic [ref=e16]: 🔐
+          - paragraph [ref=e19]: IAM Audit
+      - listitem [ref=e20]:
+        - link "About" [ref=e22] [cursor=pointer]:
+          - /url: https://ai-agent.techcloudup.com/about
+          - generic [ref=e25]: ℹ️
+          - paragraph [ref=e28]: About
+      - listitem [ref=e29]:
+        - link "How it Works" [ref=e31] [cursor=pointer]:
+          - /url: https://ai-agent.techcloudup.com/how_it_works
+          - generic [ref=e34]: 🔧
+          - paragraph [ref=e37]: How it Works
+    - generic [ref=e41]:
+      - heading "🔐 AI Agentic" [level=1] [ref=e45]
+      - paragraph [ref=e50]: GCP IAM Audit Agent · Google ADK + Gemini on Vertex AI
+  - generic [ref=e3]:
+    - banner [ref=e53]:
+      - button "Main menu" [ref=e58] [cursor=pointer]:
+        - img [ref=e59]
+    - generic [ref=e62]:
+      - heading "About" [level=1] [ref=e67]:
+        - text: About
+        - generic [ref=e68]:
+          - link "Link to heading":
+            - /url: "#about"
+            - img
+      - paragraph [ref=e73]: GCP IAM Audit Agent — Google ADK + Gemini on Vertex AI
+      - generic [ref=e77]:
+        - paragraph [ref=e78]:
+          - text: This is a live demo of an
+          - strong [ref=e79]: Agentic AI
+          - text: system that automates GCP IAM security audits.
+        - paragraph [ref=e80]: You describe what you want in plain English — the Agent figures out which GCP APIs to call, executes them in sequence, reasons about the results, and produces a structured audit report. No scripting. No manual API calls.
+        - separator [ref=e81]
+        - heading "Why this exists" [level=3] [ref=e83]:
+          - text: Why this exists
+          - generic [ref=e84]:
+            - link "Link to heading":
+              - /url: "#why-this-exists"
+              - img
+        - paragraph [ref=e85]:
+          - text: "Most IAM audit tools are scripts that run a fixed set of checks. This demo shows a different model: a"
+          - strong [ref=e86]: reasoning agent
+          - text: that can adapt its approach based on what it finds.
+        - blockquote [ref=e87]:
+          - paragraph [ref=e88]: "\"Find service accounts with owner-level access and check if any of them have been inactive for more than 90 days\" — that kind of flexible, multi-step query is where agents shine over fixed scripts."
+        - separator [ref=e89]
+        - heading "Tech Stack" [level=3] [ref=e91]:
+          - text: Tech Stack
+          - generic [ref=e92]:
+            - link "Link to heading":
+              - /url: "#tech-stack"
+              - img
+        - table [ref=e93]:
+          - rowgroup [ref=e94]:
+            - row "Layer Technology" [ref=e95]:
+              - columnheader "Layer" [ref=e96]
+              - columnheader "Technology" [ref=e97]
+          - rowgroup [ref=e98]:
+            - row "AI Framework Google ADK 2.2" [ref=e99]:
+              - cell "AI Framework" [ref=e100]
+              - cell "Google ADK 2.2" [ref=e101]:
+                - link "Google ADK" [ref=e102] [cursor=pointer]:
+                  - /url: https://google.github.io/adk-docs/
+                - text: "2.2"
+            - row "LLM Gemini 2.5 Flash via Vertex AI" [ref=e103]:
+              - cell "LLM" [ref=e104]
+              - cell "Gemini 2.5 Flash via Vertex AI" [ref=e105]
+            - row "Pattern ReAct (Reason + Act) multi-agent" [ref=e106]:
+              - cell "Pattern" [ref=e107]
+              - cell "ReAct (Reason + Act) multi-agent" [ref=e108]
+            - row "UI Streamlit 1.58" [ref=e109]:
+              - cell "UI" [ref=e110]
+              - cell "Streamlit 1.58" [ref=e111]
+            - row "Deployment Cloud Run (serverless)" [ref=e112]:
+              - cell "Deployment" [ref=e113]
+              - cell "Cloud Run (serverless)" [ref=e114]
+            - row "IaC Terraform" [ref=e115]:
+              - cell "IaC" [ref=e116]
+              - cell "Terraform" [ref=e117]
+            - row "CI/CD GitHub Actions + Workload Identity Federation" [ref=e118]:
+              - cell "CI/CD" [ref=e119]
+              - cell "GitHub Actions + Workload Identity Federation" [ref=e120]
+        - separator [ref=e121]
+        - heading "Source" [level=3] [ref=e123]:
+          - text: Source
+          - generic [ref=e124]:
+            - link "Link to heading":
+              - /url: "#source"
+              - img
+        - paragraph [ref=e125]:
+          - link "GitHub" [ref=e126] [cursor=pointer]:
+            - /url: https://github.com/scale600/ai-agent
+            - img "GitHub" [ref=e127]
+        - paragraph [ref=e128]: Licensed under MIT. Contributions welcome.

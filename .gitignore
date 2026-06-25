@@ -1,7 +1,8 @@
 # Environment
 .env
-*.json
-!package.json
+credentials*.json
+*service-account*.json
+*sa-key*.json
 
 # Python
 .venv/
@@ -19,5 +20,20 @@ terraform/*.tfvars
 # OS
 .DS_Store
 
+# Screenshots & docs (keep repo lean, no binary bloat)
+docs/screenshots/
+*.png
+*.jpg
+*.jpeg
+
 # Korean internal docs
 ai-agentic-kor.md
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Testing tools
+.playwright-mcp/

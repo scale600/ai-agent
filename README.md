@@ -171,12 +171,12 @@ Push to `main` → GitHub Actions automatically:
 ```bash
 # Build and push
 docker buildx build --platform linux/amd64 \
-  -t us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app:latest \
+  -t us-central1-docker.pkg.dev/YOUR_PROJECT_ID/ai-agent/app:latest \
   --push .
 
 # Deploy
 gcloud run deploy ai-agent \
-  --image=us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app:latest \
+  --image=us-central1-docker.pkg.dev/YOUR_PROJECT_ID/ai-agent/app:latest \
   --region=us-central1
 ```
 
