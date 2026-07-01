@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.title("About")
-st.caption("GCP IAM Audit Agent — Google ADK + Gemini on Vertex AI")
+st.caption("GCP IAM Security Audit Agent powered by Google ADK + Gemini on Vertex AI")
 
 st.markdown("""
 This is a live demo of an **Agentic AI** system that automates GCP IAM security audits.

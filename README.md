@@ -1,4 +1,4 @@
-# ai-agent — GCP IAM Audit Agent
+# ai-agent — GCP IAM Security Audit Agent powered by Google ADK + Gemini on Vertex AI
 
 > Automated GCP IAM Audit powered by **Google ADK 2.2 + Gemini 2.5 Flash on Vertex AI**
 
