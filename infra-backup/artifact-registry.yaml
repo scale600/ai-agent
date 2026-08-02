@@ -1,0 +1,28 @@
+Encryption: Google-managed key
+Repository Size: 485.339MB
+cleanupPolicies:
+  delete-old-untagged:
+    action: DELETE
+    condition:
+      olderThan: 86400s
+      tagState: UNTAGGED
+    id: delete-old-untagged
+  keep-tagged-latest-3:
+    action: KEEP
+    condition:
+      newerThan: 2592000s
+      tagState: TAGGED
+    id: keep-tagged-latest-3
+createTime: '2026-06-14T01:20:19.401303Z'
+format: DOCKER
+labels:
+  goog-terraform-provisioned: 'true'
+mode: STANDARD_REPOSITORY
+name: projects/ai-agentic-2026/locations/us-central1/repositories/ai-agent
+registryUri: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent
+satisfiesPzi: true
+updateTime: '2026-08-02T21:10:04.445736Z'
+vulnerabilityScanningConfig:
+  enablementState: SCANNING_DISABLED
+  enablementStateReason: API containerscanning.googleapis.com is not enabled.
+  lastEnableTime: '2026-06-14T01:20:18.956473907Z'

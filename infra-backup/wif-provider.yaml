@@ -1,0 +1,10 @@
+attributeCondition: assertion.repository=='scale600/ai-agentic' || assertion.repository=='scale600/ai-agent'
+attributeMapping:
+  attribute.actor: assertion.actor
+  attribute.repository: assertion.repository
+  google.subject: assertion.sub
+displayName: GitHub OIDC Provider
+name: projects/1004402056084/locations/global/workloadIdentityPools/github-pool/providers/github-provider
+oidc:
+  issuerUri: https://token.actions.githubusercontent.com
+state: ACTIVE

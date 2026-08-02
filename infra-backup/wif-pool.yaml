@@ -1,0 +1,3 @@
+displayName: GitHub Actions Pool
+name: projects/1004402056084/locations/global/workloadIdentityPools/github-pool
+state: ACTIVE

@@ -1,0 +1,74 @@
+---
+apiVersion: domains.cloudrun.com/v1
+kind: DomainMapping
+metadata:
+  annotations:
+    run.googleapis.com/operation-id: 7c3ffa80-f9e4-478b-942a-f1e66086dbda
+    serving.knative.dev/creator: wonhee.lee.ok@gmail.com
+    serving.knative.dev/lastModifier: wonhee.lee.ok@gmail.com
+  creationTimestamp: '2026-06-14T01:24:12.104162Z'
+  generation: 1
+  labels:
+    cloud.googleapis.com/location: us-central1
+    run.googleapis.com/overrideAt: '2026-06-14T01:24:16.083Z'
+  name: ai-agent.techcloudup.com
+  namespace: '1004402056084'
+  resourceVersion: AAZULMCsewI
+  selfLink: /apis/domains.cloudrun.com/v1/namespaces/1004402056084/domainmappings/ai-agent.techcloudup.com
+  uid: 41d72e2e-0a52-4d5c-b00f-5f420e529ae3
+spec:
+  routeName: ai-agent
+status:
+  conditions:
+  - lastTransitionTime: '2026-06-14T01:37:28.087298Z'
+    status: 'True'
+    type: Ready
+  - lastTransitionTime: '2026-06-14T01:37:28.087298Z'
+    status: 'True'
+    type: CertificateProvisioned
+  - lastTransitionTime: '2026-06-14T01:24:20.113092Z'
+    status: 'True'
+    type: DomainRoutable
+  mappedRouteName: ai-agent
+  observedGeneration: 1
+  resourceRecords:
+  - name: ai-agent
+    rrdata: ghs.googlehosted.com.
+    type: CNAME
+---
+apiVersion: domains.cloudrun.com/v1
+kind: DomainMapping
+metadata:
+  annotations:
+    run.googleapis.com/operation-id: ad276485-b392-45ba-8510-d0b022d07664
+    serving.knative.dev/creator: wonhee.lee.ok@gmail.com
+    serving.knative.dev/lastModifier: wonhee.lee.ok@gmail.com
+  creationTimestamp: '2026-06-13T21:56:44.048869Z'
+  generation: 1
+  labels:
+    cloud.googleapis.com/location: us-central1
+    run.googleapis.com/overrideAt: '2026-06-13T21:56:47.677Z'
+  name: ai-agentic.techcloudup.com
+  namespace: '1004402056084'
+  resourceVersion: AAZUKdNp68o
+  selfLink: /apis/domains.cloudrun.com/v1/namespaces/1004402056084/domainmappings/ai-agentic.techcloudup.com
+  uid: 66d99d6e-e517-4f17-af25-8710c6209616
+spec:
+  routeName: ai-agentic
+status:
+  conditions:
+  - lastTransitionTime: '2026-06-13T22:07:57.590474Z'
+    status: 'True'
+    type: Ready
+  - lastTransitionTime: '2026-06-13T22:07:57.590474Z'
+    status: 'True'
+    type: CertificateProvisioned
+  - lastTransitionTime: '2026-06-13T21:56:49.774472Z'
+    status: 'True'
+    type: DomainRoutable
+  mappedRouteName: ai-agentic
+  observedGeneration: 1
+  resourceRecords:
+  - name: ai-agentic
+    rrdata: ghs.googlehosted.com.
+    type: CNAME

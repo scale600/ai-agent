@@ -1,0 +1,54 @@
+Listing items under project ai-agentic-2026, location us-central1, repository ai-agent.
+
+---
+createTime: '2026-08-02T20:54:32.476063Z'
+metadata:
+  buildTime: '2026-08-02T20:54:05.160884246Z'
+  imageSizeBytes: '219185279'
+  mediaType: application/vnd.docker.distribution.manifest.v2+json
+  name: projects/ai-agentic-2026/locations/us-central1/repositories/ai-agent/dockerImages/app@sha256:01d7c4b8dbbbbc4cf49b04aa94aafd17b981f412b618992955033895acc101ad
+package: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
+tags: []
+updateTime: '2026-08-02T21:10:04.466367Z'
+version: sha256:01d7c4b8dbbbbc4cf49b04aa94aafd17b981f412b618992955033895acc101ad
+---
+createTime: '2026-07-03T16:11:27.140511Z'
+metadata:
+  buildTime: '2026-07-03T16:10:39.902991584Z'
+  imageSizeBytes: '93427611'
+  mediaType: application/vnd.oci.image.manifest.v1+json
+  name: projects/ai-agentic-2026/locations/us-central1/repositories/ai-agent/dockerImages/app@sha256:1b962a6debd66670bb2c2c86ff7f48bc17a7d2eb25dac217e1c7f074604ab1db
+package: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
+tags: []
+updateTime: '2026-07-03T16:11:27.140511Z'
+version: sha256:1b962a6debd66670bb2c2c86ff7f48bc17a7d2eb25dac217e1c7f074604ab1db
+---
+createTime: '2026-07-03T16:11:27.525375Z'
+metadata:
+  mediaType: application/vnd.oci.image.index.v1+json
+  name: projects/ai-agentic-2026/locations/us-central1/repositories/ai-agent/dockerImages/app@sha256:53c995e284d43c5f8a5f69ddc269ff27e6720f5128bf712a99c6a31304852cdb
+package: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
+tags: []
+updateTime: '2026-08-02T20:54:33.932959Z'
+version: sha256:53c995e284d43c5f8a5f69ddc269ff27e6720f5128bf712a99c6a31304852cdb
+---
+createTime: '2026-07-03T16:11:27.103055Z'
+metadata:
+  imageSizeBytes: '1411'
+  mediaType: application/vnd.oci.image.manifest.v1+json
+  name: projects/ai-agentic-2026/locations/us-central1/repositories/ai-agent/dockerImages/app@sha256:b6c5027e5434b248df14f1bd7c173c3d971dde24c51cd39be4d9806a404e4fe5
+package: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
+tags: []
+updateTime: '2026-07-03T16:11:27.103055Z'
+version: sha256:b6c5027e5434b248df14f1bd7c173c3d971dde24c51cd39be4d9806a404e4fe5
+---
+createTime: '2026-08-02T21:10:02.492207Z'
+metadata:
+  buildTime: '2026-08-02T21:09:34.658325656Z'
+  imageSizeBytes: '219212609'
+  mediaType: application/vnd.docker.distribution.manifest.v2+json
+  name: projects/ai-agentic-2026/locations/us-central1/repositories/ai-agent/dockerImages/app@sha256:f023e6bf312db01965725c88315a16e32df4bec62b044f48de2613caa5e16420
+package: us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
+tags: []
+updateTime: '2026-08-02T21:10:04.466367Z'
+version: sha256:f023e6bf312db01965725c88315a16e32df4bec62b044f48de2613caa5e16420

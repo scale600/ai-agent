@@ -1,0 +1,42 @@
+bindings:
+- members:
+  - serviceAccount:service-1004402056084@gcp-sa-aiplatform.iam.gserviceaccount.com
+  role: roles/aiplatform.serviceAgent
+- members:
+  - serviceAccount:ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
+  role: roles/aiplatform.user
+- members:
+  - serviceAccount:service-1004402056084@gcp-sa-artifactregistry.iam.gserviceaccount.com
+  role: roles/artifactregistry.serviceAgent
+- members:
+  - serviceAccount:service-1004402056084@containerregistry.iam.gserviceaccount.com
+  role: roles/containerregistry.ServiceAgent
+- members:
+  - serviceAccount:1004402056084-compute@developer.gserviceaccount.com
+  role: roles/editor
+- members:
+  - serviceAccount:ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
+  role: roles/iam.securityReviewer
+- members:
+  - serviceAccount:ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
+  role: roles/iam.serviceAccountUser
+- members:
+  - serviceAccount:ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
+  role: roles/iam.serviceAccountViewer
+- members:
+  - user:wonhee.lee.ok@gmail.com
+  role: roles/owner
+- members:
+  - serviceAccount:service-1004402056084@gcp-sa-pubsub.iam.gserviceaccount.com
+  role: roles/pubsub.serviceAgent
+- members:
+  - serviceAccount:ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
+  role: roles/run.developer
+- members:
+  - serviceAccount:service-1004402056084@serverless-robot-prod.iam.gserviceaccount.com
+  role: roles/run.serviceAgent
+- members:
+  - user:wonhee.lee.ok@gmail.com
+  role: roles/serviceusage.serviceUsageConsumer
+etag: BwZXE20O29E=
+version: 1
