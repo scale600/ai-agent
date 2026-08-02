@@ -1,25 +1,26 @@
 import streamlit as st
 
-st.title("About")
-st.caption("GCP IAM Security Audit Agent powered by Google ADK + Gemini on Vertex AI")
+st.title("AI Agentic Project")
+st.caption("GCP IAM Security Audit Agent — Project Archive")
 
 st.markdown("""
-This is a live demo of an **Agentic AI** system that automates GCP IAM security audits.
+This project was a live demo of an **Agentic AI** system that automated GCP IAM security audits
+using Google ADK + Gemini 2.5 Flash on Vertex AI.
 
-You describe what you want in plain English — the Agent figures out which GCP APIs to call,
-executes them in sequence, reasons about the results, and produces a structured audit report.
-No scripting. No manual API calls.
+> ⚠️ **Status: Archived** — The IAM audit service has been decommissioned to reduce GCP costs.
+> This page serves as the project portfolio and documentation.
 
 ---
 
-### Why this exists
+### What it did
 
-Most IAM audit tools are scripts that run a fixed set of checks.
-This demo shows a different model: a **reasoning agent** that can adapt its approach based on what it finds.
+Users described what they wanted in plain English — the Agent figured out which GCP APIs to call,
+executed them in sequence, reasoned about the results, and produced structured audit reports.
 
-> "Find service accounts with owner-level access and check if any of them have been
-> inactive for more than 90 days" — that kind of flexible, multi-step query is where
-> agents shine over fixed scripts.
+**Example queries:**
+- *"Audit IAM policies and generate a full security report"*
+- *"Find service accounts with excessive permissions"*
+- *"Check for public access (allUsers) in IAM bindings"*
 
 ---
 
@@ -27,13 +28,22 @@ This demo shows a different model: a **reasoning agent** that can adapt its appr
 
 | Layer | Technology |
 |-------|-----------|
-| AI Framework | [Google ADK](https://google.github.io/adk-docs/) 2.2 |
+| AI Framework | Google ADK 2.2 |
 | LLM | Gemini 2.5 Flash via Vertex AI |
 | Pattern | ReAct (Reason + Act) multi-agent |
 | UI | Streamlit 1.58 |
 | Deployment | Cloud Run (serverless) |
 | IaC | Terraform |
-| CI/CD | GitHub Actions + Workload Identity Federation |
+| CI/CD | GitHub Actions + Workload Identity Federation (keyless) |
+
+---
+
+### Why it was built
+
+Most IAM audit tools are scripts that run a fixed set of checks.
+This demo explored a different model: a **reasoning agent** that could adapt its approach
+based on what it found — demonstrating the flexibility of agentic architectures over
+deterministic pipelines.
 
 ---
 
@@ -41,5 +51,6 @@ This demo shows a different model: a **reasoning agent** that can adapt its appr
 
 [![GitHub](https://img.shields.io/badge/GitHub-scale600/ai--agent-181717?logo=github&style=flat-square)](https://github.com/scale600/ai-agent)
 
-Licensed under MIT. Contributions welcome.
+MIT License. All infrastructure code (Terraform, Cloud Run configs, IAM policies) 
+is preserved in the `infra-backup/` directory for full restoration.
 """)

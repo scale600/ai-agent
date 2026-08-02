@@ -10,12 +10,6 @@ variable "region" {
   default     = "us-central1"
 }
 
-variable "gemini_model" {
-  description = "Gemini model name"
-  type        = string
-  default     = "gemini-2.5-flash"
-}
-
 variable "image_tag" {
   description = "Docker image tag"
   type        = string

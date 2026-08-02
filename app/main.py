@@ -5,8 +5,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import streamlit as st
 
 st.set_page_config(
-    page_title="AI Agent — GCP IAM Audit",
-    page_icon="🔐",
+    page_title="AI Agentic Project",
+    page_icon="📋",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -50,8 +50,8 @@ with st.sidebar:
                     </svg>
                 </a>
             </div>
-            <h3 style="margin:0; font-size:1.5rem;">🔐 AI Agent</h3>
-            <p style="margin:4px 0 0 0; font-size:0.85rem; color:#9e9e9e;">GCP IAM Audit Agent · Google ADK + Gemini on Vertex AI</p>
+            <h3 style="margin:0; font-size:1.5rem;">📋 AI Agentic Project</h3>
+            <p style="margin:4px 0 0 0; font-size:0.85rem; color:#9e9e9e;">GCP IAM Audit Agent · Project Archive</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -61,7 +61,6 @@ with st.sidebar:
 
 # ── Navigation ────────────────────────────────────────────────────────────────
 pg = st.navigation([
-    st.Page("pages/audit.py", title="IAM Audit", icon="🔐"),
     st.Page("pages/about.py", title="About", icon="ℹ️"),
     st.Page("pages/how_it_works.py", title="How it Works", icon="🔧"),
 ])

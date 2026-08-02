@@ -7,9 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-ENV PYTHONPATH=/app
-ENV GOOGLE_GENAI_USE_VERTEXAI=true
-
 EXPOSE 8080
 
 CMD ["streamlit", "run", "app/main.py", \
