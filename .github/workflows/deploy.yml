@@ -48,10 +48,8 @@ jobs:
             --image="$REGISTRY:${{ github.sha }}" \
             --region=${{ env.REGION }} \
             --project=${{ secrets.GCP_PROJECT_ID }} \
-            --cpu=0.5 \
-            --memory=256Mi \
-            --concurrency=1 \
-            --cpu-throttling \
+            --cpu=1 \
+            --memory=512Mi \
             --min-instances=0 \
             --max-instances=1 \
             --quiet
