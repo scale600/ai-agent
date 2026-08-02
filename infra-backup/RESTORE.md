@@ -2,46 +2,46 @@
 
 > Last backup: **2026-08-02** — Project: `ai-agentic-2026`
 
-이 가이드는 GCP 리소스를 완전히 삭제한 후, 언제든 동일한 구성으로 복구할 수 있도록 작성되었습니다.
+This guide documents how to fully restore GCP resources after deletion, so the same configuration can be recreated at any time.
 
 ---
 
 ## 📦 Backup Contents
 
-| 파일 | 설명 |
+| File | Description |
 |---|---|
-| `terraform.tfstate` | Terraform state (가장 중요 — 이게 없으면 resource import 필요) |
+| `terraform.tfstate` | Terraform state (most critical — without this, manual resource import is required) |
 | `terraform.tfstate.backup` | Terraform state backup |
-| `cloud-run-service.yaml` | Cloud Run 서비스 전체 설정 (환경변수, 리소스, 스케일링 등) |
-| `domain-mappings.yaml` | 커스텀 도메인 매핑 (`ai-agent.techcloudup.com`, `ai-agentic.techcloudup.com`) |
-| `iam-policy.yaml` | 프로젝트 IAM 정책 (SA 권한, 사용자 권한) |
-| `service-account.yaml` | Cloud Run용 서비스 계정 (`ai-agent-sa`) |
-| `artifact-registry.yaml` | Artifact Registry 저장소 설정 |
-| `docker-images.yaml` | 등록된 Docker 이미지 목록 |
+| `cloud-run-service.yaml` | Full Cloud Run service config (env vars, resources, scaling) |
+| `domain-mappings.yaml` | Custom domain mappings (`ai-agent.techcloudup.com`, `ai-agentic.techcloudup.com`) |
+| `iam-policy.yaml` | Project IAM policy (SA roles, user roles) |
+| `service-account.yaml` | Cloud Run service account (`ai-agent-sa`) |
+| `artifact-registry.yaml` | Artifact Registry repository config |
+| `docker-images.yaml` | Registered Docker image list |
 | `wif-pool.yaml` | Workload Identity Federation Pool |
 | `wif-provider.yaml` | WIF Provider (GitHub OIDC) |
 
 ---
 
-## ⚠️ 사전 준비
+## ⚠️ Prerequisites
 
 ```bash
-# 1. gcloud 인증
+# 1. gcloud authentication
 gcloud auth login wonhee.lee.ok@gmail.com
 gcloud auth application-default login
 
-# 2. 프로젝트 설정
+# 2. Project configuration
 gcloud config set project ai-agentic-2026
 gcloud config set compute/region us-central1
 
-# 3. Billing 계정 연결 (새 프로젝트인 경우)
+# 3. Link billing account (if new project)
 # GCP Console → Billing → Link billing account: 010684-CD0CA1-65C083
 
-# 4. 도메인 DNS 설정 (techcloudup.com)
+# 4. Domain DNS setup (techcloudup.com)
 # ai-agent.techcloudup.com  → CNAME → ghs.googlehosted.com
 # ai-agentic.techcloudup.com → CNAME → ghs.googlehosted.com
 
-# 5. GitHub Secrets 설정
+# 5. GitHub Secrets configuration
 # Repo: scale600/ai-agent → Settings → Secrets and variables → Actions
 #   WIF_PROVIDER: projects/1004402056084/locations/global/workloadIdentityPools/github-pool/providers/github-provider
 #   GCP_SERVICE_ACCOUNT: ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com
@@ -50,12 +50,12 @@ gcloud config set compute/region us-central1
 
 ---
 
-## 🚀 방법 1: Terraform으로 복구 (권장)
+## 🚀 Method 1: Restore via Terraform (Recommended)
 
-Terraform state 파일이 있으므로 기존 리소스를 그대로 관리할 수 있습니다.
+The Terraform state file exists, so existing resources can be managed as-is.
 
 ```bash
-# 1. 필요한 API 활성화
+# 1. Enable required APIs
 gcloud services enable \
   artifactregistry.googleapis.com \
   run.googleapis.com \
@@ -64,7 +64,7 @@ gcloud services enable \
   aiplatform.googleapis.com \
   --project=ai-agentic-2026
 
-# 2. Terraform 초기화 및 state 복원
+# 2. Initialize Terraform and restore state
 cd terraform
 cp ../infra-backup/terraform.tfstate .
 cp ../infra-backup/terraform.tfstate.backup .
@@ -72,19 +72,19 @@ cp ../infra-backup/terraform.tfstate.backup .
 terraform init
 terraform plan -var="project_id=ai-agentic-2026"
 
-# 3. 상태에 차이가 있다면 refresh 후 apply
+# 3. If state has drifted, refresh then apply
 terraform apply -var="project_id=ai-agentic-2026"
 ```
 
-> ⚠️ **State 파일이 중요합니다.** 이 파일이 없으면 `terraform import`로 모든 리소스를 수동 import 해야 합니다.
+> ⚠️ **The state file is critical.** Without it, you must manually import every resource via `terraform import`.
 
 ---
 
-## 🛠️ 방법 2: gcloud CLI로 수동 복구
+## 🛠️ Method 2: Manual Restore via gcloud CLI
 
-Terraform state가 유실된 경우 아래 순서대로 복구합니다.
+If Terraform state is lost, follow these steps in order.
 
-### Step 1: API 활성화
+### Step 1: Enable APIs
 
 ```bash
 gcloud services enable \
@@ -94,7 +94,7 @@ gcloud services enable \
   --project=ai-agentic-2026
 ```
 
-### Step 2: Artifact Registry 생성
+### Step 2: Create Artifact Registry
 
 ```bash
 gcloud artifacts repositories create ai-agent \
@@ -103,15 +103,15 @@ gcloud artifacts repositories create ai-agent \
   --project=ai-agentic-2026
 ```
 
-### Step 3: 서비스 계정 생성 및 권한 부여
+### Step 3: Create Service Account and Grant Permissions
 
 ```bash
-# SA 생성
+# Create SA
 gcloud iam service-accounts create ai-agent-sa \
   --display-name="AI Agent App Service Account" \
   --project=ai-agentic-2026
 
-# IAM 권한 부여
+# Grant IAM permissions
 gcloud projects add-iam-policy-binding ai-agentic-2026 \
   --member="serviceAccount:ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com" \
   --role="roles/iam.securityReviewer"
@@ -133,7 +133,7 @@ gcloud projects add-iam-policy-binding ai-agentic-2026 \
   --role="roles/iam.serviceAccountUser"
 ```
 
-### Step 4: Docker 이미지 빌드 & 푸시
+### Step 4: Build & Push Docker Image
 
 ```bash
 REGISTRY=us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app
@@ -143,7 +143,7 @@ docker buildx build --platform linux/amd64 \
   --push .
 ```
 
-### Step 5: Cloud Run 배포
+### Step 5: Deploy to Cloud Run
 
 ```bash
 gcloud run deploy ai-agent \
@@ -160,7 +160,7 @@ gcloud run deploy ai-agent \
   --project=ai-agentic-2026
 ```
 
-### Step 6: 도메인 연결
+### Step 6: Connect Custom Domain
 
 ```bash
 gcloud beta run domain-mappings create \
@@ -169,12 +169,12 @@ gcloud beta run domain-mappings create \
   --region=us-central1
 ```
 
-DNS에 `CNAME` 레코드 추가:
+Add `CNAME` record to DNS:
 - `ai-agent` → `ghs.googlehosted.com`
 
-> SSL 인증서는 자동으로 프로비저닝됩니다 (약 10-15분 소요).
+> SSL certificates are automatically provisioned (~10-15 minutes).
 
-### Step 7: WIF (GitHub Actions CI/CD) 복구
+### Step 7: Restore WIF (GitHub Actions CI/CD)
 
 ```bash
 # WIF Pool
@@ -192,7 +192,7 @@ gcloud iam workload-identity-pools providers create-oidc github-provider \
   --attribute-condition="assertion.repository=='scale600/ai-agentic' || assertion.repository=='scale600/ai-agent'" \
   --project=ai-agentic-2026
 
-# WIF → SA 권한 연결
+# WIF → SA permission binding
 gcloud iam service-accounts add-iam-policy-binding \
   ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com \
   --member="principalSet://iam.googleapis.com/projects/1004402056084/locations/global/workloadIdentityPools/github-pool/attribute.repository/scale600/ai-agent" \
@@ -200,9 +200,9 @@ gcloud iam service-accounts add-iam-policy-binding \
   --project=ai-agentic-2026
 ```
 
-> ⚠️ WIF Pool의 project number(`1004402056084`)는 프로젝트가 삭제/재생성되면 변경됩니다. 새 번호로 대체하세요.
+> ⚠️ The WIF Pool project number (`1004402056084`) changes if the project is deleted and recreated. Replace with the new number.
 
-### Step 8: GitHub Secrets 설정
+### Step 8: Set GitHub Secrets
 
 Repository `scale600/ai-agent` → **Settings → Secrets and variables → Actions**:
 
@@ -214,16 +214,16 @@ Repository `scale600/ai-agent` → **Settings → Secrets and variables → Acti
 
 ---
 
-## ✅ 복구 확인
+## ✅ Verification
 
 ```bash
-# 1. Cloud Run 서비스 상태 확인
+# 1. Check Cloud Run service status
 gcloud run services describe ai-agent --region=us-central1
 
-# 2. 서비스 URL 확인
+# 2. Get service URL
 gcloud run services describe ai-agent --region=us-central1 --format="value(status.url)"
 
-# 3. 접속 테스트
+# 3. Connection test
 curl -I https://ai-agent.techcloudup.com
 
 # 4. Streamlit health check
@@ -232,9 +232,9 @@ curl https://ai-agent.techcloudup.com/_stcore/health
 
 ---
 
-## 📊 인프라 구성 요약
+## 📊 Infrastructure Summary
 
-| 리소스 | 이름 | 상세 |
+| Resource | Name | Details |
 |---|---|---|
 | Project | `ai-agentic-2026` | Project Number: `1004402056084` |
 | Billing | `010684-CD0CA1-65C083` | AI Agentic Demo |
@@ -250,29 +250,29 @@ curl https://ai-agent.techcloudup.com/_stcore/health
 
 ---
 
-## 🗑️ 리소스 삭제 (Shutdown)
+## 🗑️ Resource Cleanup (Shutdown)
 
 ```bash
-# 1. Cloud Run 서비스 삭제
+# 1. Delete Cloud Run service
 gcloud run services delete ai-agent --region=us-central1 --quiet
 
-# 2. Domain mappings 삭제
+# 2. Delete domain mappings
 gcloud beta run domain-mappings delete ai-agent.techcloudup.com --region=us-central1 --quiet
 
-# 3. Artifact Registry 이미지 삭제 후 저장소 삭제
+# 3. Delete Artifact Registry images then repository
 gcloud artifacts docker images delete \
   us-central1-docker.pkg.dev/ai-agentic-2026/ai-agent/app --delete-tags --quiet
 gcloud artifacts repositories delete ai-agent --location=us-central1 --quiet
 
-# 4. 서비스 계정 삭제
+# 4. Delete service account
 gcloud iam service-accounts delete \
   ai-agent-sa@ai-agentic-2026.iam.gserviceaccount.com --quiet
 
-# 5. WIF 삭제
+# 5. Delete WIF
 gcloud iam workload-identity-pools providers delete github-provider \
   --workload-identity-pool=github-pool --location=global --quiet
 gcloud iam workload-identity-pools delete github-pool --location=global --quiet
 
-# 6. (선택) 불필요한 API 비활성화
+# 6. (Optional) Disable unused APIs
 gcloud services disable run.googleapis.com --project=ai-agentic-2026 --force
 ```
