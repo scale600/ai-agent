@@ -62,13 +62,23 @@ Infrastructure: Cloud Run · Artifact Registry · Terraform · GitHub Actions WI
 
 ## Screenshots
 
-### Chat UI with Reasoning Trace
+### Chat UI — IAM Audit Report
 
-![Streamlit UI](streamlit-ui.png)
+![IAM Audit Chat](screenshots/home.png)
 
-### Audit Report Output
+*Real-time IAM audit with Gemini-generated report showing violations and recommendations*
 
-![Audit Result](streamlit-result.png)
+### About Page
+
+![About](screenshots/about.png)
+
+*Tech stack, project overview, and why this exists*
+
+### How it Works
+
+![How it Works](screenshots/how_it_works.png)
+
+*Architecture overview: Supervisor Agent → IAM Audit sub-agent → GCP APIs*
 
 ---
 
